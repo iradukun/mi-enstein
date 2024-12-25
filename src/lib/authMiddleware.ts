@@ -1,9 +1,16 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import UserDocument from '../models/User'
 import jwt from 'jsonwebtoken'
 import User from '../models/User'
+interface AuthenticatedRequest extends NextApiRequest {
+  user?: {
+    id: string;
+    role: string;
+  };
+}
 
-export function authMiddleware(handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void>) {
-  return async (req: NextApiRequest, res: NextApiResponse) => {
+export function authMiddleware(handler: (req: AuthenticatedRequest, res: NextApiResponse) => Promise<void>) {
+  return async (req: AuthenticatedRequest, res: NextApiResponse) => {
     try {
       const token = req.headers.authorization?.split(' ')[1]
       if (!token) {
@@ -26,8 +33,8 @@ export function authMiddleware(handler: (req: NextApiRequest, res: NextApiRespon
 }
 
 export function authorizeRoles(...roles: string[]) {
-  return (req: NextApiRequest, res: NextApiResponse, next: () => void) => {
-    if (!roles.includes(req.user.role)) {
+  return (req: AuthenticatedRequest, res: NextApiResponse, next: () => void) => {
+    if (!req.user?.role || !roles.includes(req.user.role)) {
       return res.status(403).json({ success: false, message: 'Access denied' })
     }
     next()

@@ -10,6 +10,11 @@ import { Pause, Play, SkipForward, Mic } from 'lucide-react'
 const textToSpeech = async (text: string) => {
   console.log('Speaking:', text)
   // Implement actual TTS here
+  const utterance = new SpeechSynthesisUtterance(text)
+  utterance.onend = () => {
+    console.log('Finished speaking')
+  }
+  speechSynthesis.speak(utterance)
 }
 
 // Mock function for speech recognition (replace with actual implementation)

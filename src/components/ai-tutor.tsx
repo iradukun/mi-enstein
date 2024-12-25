@@ -36,7 +36,7 @@ export function AITutor({ initialPrompt = '', lessonId = '' }) {
 
   const { messages, input, handleInputChange, handleSubmit, append } = useChat({
     api: '/api/ai/tutor',
-    initialMessages: initialPrompt ? [{ role: 'system', content: initialPrompt }] : [],
+    initialMessages: initialPrompt ? [{ id: 'initial', role: 'system', content: initialPrompt }] : [],
   })
 
   useEffect(() => {
