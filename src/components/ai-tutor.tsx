@@ -29,7 +29,8 @@ export function AITutor({ initialPrompt = '', lessonId = '' }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isListening, setIsListening] = useState(false)
   const [whiteboardText, setWhiteboardText] = useState('')
-  const { user } = useAuth()
+  const { user } = useAuth();
+
 
   const audioRef = useRef(new Audio())
   const recognitionRef = useRef<SpeechRecognition | null>(null)

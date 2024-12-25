@@ -6,7 +6,7 @@ type User = {
   id: string
   name: string
   email: string
-  role: 'teacher' | 'student'
+  role: 'teacher' | 'student'|null
 }
 
 type AuthContextType = {
