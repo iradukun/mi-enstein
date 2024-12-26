@@ -1,13 +1,5 @@
-Running update at: 2024-12-25T23:00:28.420Z
-Updated push.ts file
-fatal: pathspec 'lib/push.ts' did not match any files
-Error committing and pushing changes: Command failed: git add lib/push.ts
-fatal: pathspec 'lib/push.ts' did not match any files
-
-Automated update script is running. This script will continue to run until manually stopped.
-Running update at: 2024-12-26T00:00:28.218Z
-Updated push.ts file
-fatal: pathspec 'lib/push.ts' did not match any files
-Error committing and pushing changes: Command failed: git add lib/push.ts
-fatal: pathspec 'lib/push.ts' did not match any files
-
+[2024-12-26T00:51:03.005Z] Running update
+[2024-12-26T00:51:03.013Z] Error updating push.ts file: ENOENT: no such file or directory, open '/Users/itzoneltd/Desktop/repos/mi-enstein/lib/push.ts'
+[2024-12-26T00:51:03.013Z] Update process failed: ENOENT: no such file or directory, open '/Users/itzoneltd/Desktop/repos/mi-enstein/lib/push.ts'
+[2024-12-26T00:51:03.013Z] Automated update script is running. This script will continue to run until manually stopped.
+-12-26T00:51:03.013Z] Automated update script is running. This script will continue to run until manually stopped.
