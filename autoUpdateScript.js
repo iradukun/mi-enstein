@@ -9,7 +9,7 @@ function log(message) {
 
 // Function to update the push.ts file
 function updatePushFile() {
-  const filePath = path.join(__dirname, 'lib', 'push.ts');
+  const filePath = path.join(__dirname, 'src/lib', 'push.ts');
   const content = `// This file is automatically updated every hour
 
 console.log(${Date.now()});`;
@@ -47,7 +47,7 @@ function commitAndPush() {
       return;
     }
 
-    execCommand('git add lib/push.ts');
+    execCommand('git add src/lib/push.ts');
     execCommand('git commit -m "Automated hourly update"');
     execCommand('git push origin main'); // Adjust 'main' to your default branch name if different
     log('Successfully committed and pushed changes');
